@@ -1,0 +1,45 @@
+<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<div class="image">
+							<a href="javascript:;"><img src="${rc.contextPath}/web/assets/img/user-13.jpg" alt="" /></a>
+						</div>
+						<div class="info">
+							接口管理系统
+							<small>开发人员使用</small>
+						</div>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					 
+					<li class="has-sub active">
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+						    <i class="fa fa-th"></i>
+						    <span>系统菜单</span>
+						</a>
+						<ul class="sub-menu">
+							<li class="active"><a href="${rc.contextPath}/web/pro/list">项目管理</a></li>
+							<li class="active"><a href="${rc.contextPath}/web/pro/list">文档管理</a></li>
+							<!--
+							<li class="active"><a href="login.html">阅读模式1</a></li>
+							<li class="active"><a href="http://www.htmleaf.com/ziliaoku/font-awesome/2014100887.html">图标选择</a></li>
+							-->
+						</ul>
+					</li>
+
+					 
+			        <!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+			        <!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>

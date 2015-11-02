@@ -1,0 +1,80 @@
+#parse("/frame/head.vm")
+
+
+
+<div id="content" class="content">
+			 
+			<!-- begin page-header -->
+			<h1 class="page-header">$!title</h1>
+			<!-- end page-header -->
+			
+		 
+			<!-- begin row -->
+			<div class="row">
+			    <!-- begin col-12 -->
+			    <div class="col-md-12">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">接口列表</h4>
+                        </div>
+                        <div class="panel-body">
+							
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+										<th> <input type="checkbox" /></th>
+											<th>序号</th>
+											<th>接口名称</th>
+											<th>接口描述</th>
+											<th>接口代码</th>
+											<th>前置接口</th>
+											<th>操作</th> 
+											<th>执行状态</th> 
+										</tr>
+									</thead>
+									<tbody>
+									   #foreach($obj in $data)
+										<tr>
+										    <td>
+                                                    <input type="checkbox" />
+											</td>
+											<td>$velocityCount</td>
+											<td>$!obj.iname</td>
+											<td> $!obj.idetail</td>
+											<td>$!obj.icode</td>
+											<td>$!obj.hInterId</td>
+											<td>
+											   <a href=""><i class="fa fa-pencil fa-fw m-r-5"></i>编辑</a>
+											   <i class="fa fa-trash fa-fw m-r-5"></i> 删除</a>
+											   <a href="/execi"><i class="fa fa-arrow-right fa-fw m-r-5"></i>执行接口</a>
+											</td>
+											 <td>
+											    <a href=""><i class="fa fa-check fa-fw m-r-5" style="color:green"></i>成功</a>
+											    <a href=""><i class="fa fa-remove fa-fw m-r-5"></i>失败</a>
+											</td>
+										</tr>
+									 #end
+									</tbody>
+								</table>
+							</div>
+							 <div>
+								<button type="button" class="btn btn-primary m-r-5 m-b-5">自动化测试</button>
+							 </div>
+						</div>
+					</div>
+                    <!-- end panel -->
+			    </div>
+			    <!-- end col-12 -->
+			</div>
+			<!-- end row -->
+		</div>
+	#parse("/frame/tail.vm")	
+		

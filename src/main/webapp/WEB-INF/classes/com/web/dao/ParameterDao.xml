@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.ParameterDao">
+<resultMap type="com.web.entity.ParameterEntity" id="parameterEntityResultMap">
+	<result property="interId" column="inter_id"/>
+	<result property="paName" column="pa_name"/>
+	<result property="paCode" column="pa_code"/>
+	<result property="paValue" column="pa_value"/>
+</resultMap>
+ <insert id="save" parameterType="com.web.entity.ParameterEntity">
+ 	 insert into t_parameter (inter_id,pa_name,pa_code,pa_value,id)
+ 	 values (#{interId},#{paName},#{paCode},#{paValue},#{id})
+</insert>
+<update id="update">
+	update t_parameter set
+	inter_id = #{interId}
+	pa_name = #{paName}
+	pa_code = #{paCode}
+	pa_value = #{paValue}
+	where id = #{id}
+</update>
+ <delete id="deleteById">
+	 delete FROM t_parameter where id = #{id}
+ </delete>
+<sql id="sqlWhere"> 
+                <where>
+                  <if test="obj.interId!=null">
+                     AND inter_id=#{obj.interId}
+                  </if>
+                  <if test="obj.paName!=null">
+                     AND pa_name=#{obj.paName}
+                  </if>
+                  <if test="obj.paCode!=null">
+                     AND pa_code=#{obj.paCode}
+                  </if>
+                  <if test="obj.paValue!=null">
+                     AND pa_value=#{obj.paValue}
+                  </if>
+                  <if test="obj.id!=null">
+                     AND id=#{obj.id}
+                  </if>
+                </where>
+</sql> 
+<select id="getObjectById" resultMap="parameterEntityResultMap">
+	select inter_id,pa_name,pa_code,pa_value,id from t_parameter where id=#{id}
+</select>
+
+<select id="getCountByObj"   resultType="int">
+	select count(*) from t_parameter  
+	<include refid="sqlWhere"/> 
+</select>
+<select id="getAllByPage" resultMap="parameterEntityResultMap">
+    select inter_id,pa_name,pa_code,pa_value,id from t_parameter  
+    <include refid="sqlWhere"/> 
+     LIMIT ${pageNum }, ${ pageSize }
+</select>
+<update id="updateNotNull">
+    UPDATE t_parameter
+    <trim prefix="SET" suffixOverrides=",">     
+                  <if test="interId!=null">
+                       inter_id=#{interId}
+                  </if>
+                  <if test="paName!=null">
+                       pa_name=#{paName}
+                  </if>
+                  <if test="paCode!=null">
+                       pa_code=#{paCode}
+                  </if>
+                  <if test="paValue!=null">
+                       pa_value=#{paValue}
+                  </if>
+    </trim> 
+   where id=#{id}
+</update>
+
+
+</mapper>

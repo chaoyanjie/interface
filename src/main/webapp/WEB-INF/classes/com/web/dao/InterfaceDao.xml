@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.InterfaceDao">
+<resultMap type="com.web.entity.InterfaceEntity" id="interfaceEntityResultMap">
+	<result property="proId" column="pro_id"/>
+	<result property="iname" column="iname"/>
+	<result property="icode" column="icode"/>
+	<result property="idetail" column="idetail"/>
+	<result property="hInterId" column="h_inter_id"/>
+</resultMap>
+ <insert id="save" parameterType="com.web.entity.InterfaceEntity">
+ 	 insert into t_interface (pro_id,iname,icode,idetail,h_inter_id,id)
+ 	 values (#{proId},#{iname},#{icode},#{idetail},#{hInterId},#{id})
+</insert>
+<update id="update">
+	update t_interface set
+	pro_id = #{proId}
+	iname = #{iname}
+	icode = #{icode}
+	idetail = #{idetail}
+	h_inter_id = #{hInterId}
+	where id = #{id}
+</update>
+ <delete id="deleteById">
+	 delete FROM t_interface where id = #{id}
+ </delete>
+<sql id="sqlWhere"> 
+                <where>
+                  <if test="obj.proId!=null">
+                     AND pro_id=#{obj.proId}
+                  </if>
+                  <if test="obj.iname!=null">
+                     AND iname=#{obj.iname}
+                  </if>
+                  <if test="obj.icode!=null">
+                     AND icode=#{obj.icode}
+                  </if>
+                  <if test="obj.idetail!=null">
+                     AND idetail=#{obj.idetail}
+                  </if>
+                  <if test="obj.hInterId!=null">
+                     AND h_inter_id=#{obj.hInterId}
+                  </if>
+                  <if test="obj.id!=null">
+                     AND id=#{obj.id}
+                  </if>
+                </where>
+</sql> 
+<select id="getObjectById" resultMap="interfaceEntityResultMap">
+	select pro_id,iname,icode,idetail,h_inter_id,id from t_interface where id=#{id}
+</select>
+
+<select id="getCountByObj"   resultType="int">
+	select count(*) from t_interface  
+	<include refid="sqlWhere"/> 
+</select>
+<select id="getAllByPage" resultMap="interfaceEntityResultMap">
+    select pro_id,iname,icode,idetail,h_inter_id,id from t_interface  
+    <include refid="sqlWhere"/> 
+     LIMIT ${pageNum }, ${ pageSize }
+</select>
+<update id="updateNotNull">
+    UPDATE t_interface
+    <trim prefix="SET" suffixOverrides=",">     
+                  <if test="proId!=null">
+                       pro_id=#{proId}
+                  </if>
+                  <if test="iname!=null">
+                       iname=#{iname}
+                  </if>
+                  <if test="icode!=null">
+                       icode=#{icode}
+                  </if>
+                  <if test="idetail!=null">
+                       idetail=#{idetail}
+                  </if>
+                  <if test="hInterId!=null">
+                       h_inter_id=#{hInterId}
+                  </if>
+    </trim> 
+   where id=#{id}
+</update>
+</mapper>
