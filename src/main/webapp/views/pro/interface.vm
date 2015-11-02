@@ -75,6 +75,34 @@
 			    <!-- end col-12 -->
 			</div>
 			<!-- end row -->
+			
+				<!-- begin row -->
+			<div class="row">
+			    <!-- begin col-12 -->
+			    <div class="col-md-12">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h4 class="panel-title">接口执行过程</h4>
+                        </div>
+                        <div class="panel-body">
+							 <div style="pull-left">
+							  接口B<br/>
+							 REQUEST: {"functionId":"00001","params":{"uid":1,"pageSize":10}}<br/>
+							RESPONSE: {}<br/>
+							</div>
+						</div>	 
+                    <!-- end panel -->
+			    </div>
+			    <!-- end col-12 -->
+			</div>
+			<!-- end row -->
 		</div>
 	#parse("/frame/tail.vm")	
 		

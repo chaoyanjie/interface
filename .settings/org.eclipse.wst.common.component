@@ -7,7 +7,7 @@
         <dependent-module archiveName="model.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/workspace/model/target/model.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="com.web"/>
         <property name="java-output-path" value="/com.web/target/classes"/>
+        <property name="context-root" value="web"/>
     </wb-module>
 </project-modules>
