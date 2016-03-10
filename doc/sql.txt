@@ -1,2 +1,7 @@
 查询任务的接口及参数等等。
 SELECT t.id,t.pname,t.pdetail,t.pversion,i.hInterId,i.icode,i.iname,p.paName,p.paCode FROM t_project t,t_interface i,t_parameter p WHERE i.proId=t.id AND p.interId=i.id AND t.id=1;
+
+
+测试 git冲突
+
+edit by page html.
