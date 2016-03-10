@@ -51,7 +51,8 @@
 											<td>
 											   <a href=""><i class="fa fa-pencil fa-fw m-r-5"></i>编辑</a>
 											   <i class="fa fa-trash fa-fw m-r-5"></i> 删除</a>
-											   <a href="${rc.contextPath}/web/pro/jiekou/${obj.id}"><i class="fa fa-reorder fa-fw m-r-5"></i>接口</a>
+											   <a href="${rc.contextPath}/web/pro/jiekou/${obj.id}"><i class="fa fa-reorder fa-fw m-r-5"></i>接口列表</a>
+											   <a href="${rc.contextPath}/web/pro/model/${obj.id}"><i class="fa fa-reorder fa-fw m-r-5"></i>模块列表</a>
 											   <a href="${rc.contextPath}/web/pro/detail/${obj.id}"><i class="fa fa-reorder fa-fw m-r-5"></i>阅读模式</a>
 											</td>
 											 

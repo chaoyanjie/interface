@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.model.common.ctrl.BaseCtrl;
 import com.web.entity.ProjectEntity;
 import com.web.service.impl.InterfaceServiceImpl;
+import com.web.service.impl.ModelServiceImpl;
 import com.web.service.impl.ProjectServiceImpl;
 @Controller
 @RequestMapping("/pro")
@@ -19,6 +20,8 @@ public class ProjectCtrl extends BaseCtrl {
 	ProjectServiceImpl projectService;
 	@Resource
 	InterfaceServiceImpl interfaceService;
+	@Resource
+	ModelServiceImpl modelService;
 	   @RequestMapping(value = "/greet", method = RequestMethod.GET)
 	   public String greetPath(ModelMap model) {
 	    logger.debug("Method greetPath");
@@ -45,6 +48,16 @@ public class ProjectCtrl extends BaseCtrl {
 		   model.addAttribute("data", interfaceService.getAllByProId(pid));
 		   return "pro/interface";
 	   }
+	   
+	   @RequestMapping(value = "/model/{pid}", method = RequestMethod.GET)
+	   public String model(ModelMap model,@PathVariable("pid") Integer pid){
+		   ProjectEntity entity= (ProjectEntity) projectService.getBaseEntityById(pid);
+		  String title=entity.getPname()+":"+entity.getPversion()+" 模块列表";
+		   model.addAttribute("title", title);
+		   model.addAttribute("data", modelService.getAllByProId(pid));
+		   return "pro/interface";
+	   }
+	   
 	   @RequestMapping(value = "/detail/{pid}", method = RequestMethod.GET)
 	   public String detail(ModelMap model,@PathVariable("pid") Integer pid){
 		   

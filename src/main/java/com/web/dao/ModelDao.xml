@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.ModelDao">
+
+<resultMap type="com.web.entity.ModelEntity" id="modelEntityResultMap">
+<result property="id" column="id"/>
+	<result property="modelName" column="model_name"/>
+	<result property="modelDetail" column="model_detail"/>
+	<result property="interIds" column="inter_ids"/>
+	<result property="proId" column="pro_id"/>
+</resultMap>
+ <insert id="save" parameterType="com.web.entity.ModelEntity">
+ 	 insert into t_models (model_name,model_detail,inter_ids,pro_id,id)
+ 	 values (#{modelName},#{modelDetail},#{interIds},#{proId},#{id})
+</insert>
+<update id="update">
+	update t_models set
+	model_name = #{modelName},
+	model_detail = #{modelDetail},
+	inter_ids = #{interIds},
+	pro_id = #{proId},
+	where id = #{id}
+</update>
+ <delete id="deleteById">
+	 delete FROM t_models where id = #{id}
+ </delete>
+<sql id="sqlWhere"> 
+                <where>
+                  <if test="obj.modelName!=null and obj.modelName!=''">
+                     AND model_name=#{obj.modelName}
+                  </if>
+                  <if test="obj.modelDetail!=null and obj.modelDetail!=''">
+                     AND model_detail=#{obj.modelDetail}
+                  </if>
+                  <if test="obj.interIds!=null and obj.interIds!=''">
+                     AND inter_ids=#{obj.interIds}
+                  </if>
+                  <if test="obj.proId!=null and obj.proId!=''">
+                     AND pro_id=#{obj.proId}
+                  </if>
+                  <if test="obj.id!=null and obj.id!=''">
+                     AND id=#{obj.id}
+                  </if>
+                </where>
+</sql> 
+<select id="getObjectById" resultMap="modelEntityResultMap">
+	select model_name,model_detail,inter_ids,pro_id,id from t_models where id=#{id}
+</select>
+
+<select id="getCountByObj"   resultType="int">
+	select count(*) from t_models  
+	<include refid="sqlWhere"/> 
+</select>
+<select id="getAllByPage" resultMap="modelEntityResultMap">
+    select model_name,model_detail,inter_ids,pro_id,id from t_models  
+    <include refid="sqlWhere"/> 
+     LIMIT ${pageNum }, ${ pageSize }
+</select>
+
+<select id="getAllByProjectId" resultMap="modelEntityResultMap">
+	select  model_name,model_detail,inter_ids,pro_id,id from t_models where pro_id=#{pid}
+</select>
+
+<update id="updateNotNull">
+    UPDATE t_models
+    <trim prefix="SET" suffixOverrides=",">     
+                  <if test="modelName!=null">
+                       model_name=#{modelName}
+                  </if>
+                  <if test="modelDetail!=null">
+                       model_detail=#{modelDetail}
+                  </if>
+                  <if test="interIds!=null">
+                       inter_ids=#{interIds}
+                  </if>
+                  <if test="proId!=null">
+                       pro_id=#{proId}
+                  </if>
+    </trim> 
+   where id=#{id}
+</update>
+
+
+
+</mapper>

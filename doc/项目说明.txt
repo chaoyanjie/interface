@@ -1,6 +1,17 @@
 https://github.com/chaoyanjie/interface.git
 
+1.去掉编辑功能，对于程序员来说代码生成更加高效，把json自动导入库比录入准确率更高。
+2.系统功能包括参数的查看和接口执行两个功能。
+
+
 grap 图形
+
+String root="接口管理:项目";
+String str1="项目:模块|模块1|模块2|'模块...'";
+String str2="模块:接口|接口1|接口2|'接口...'";
+String str3="接口:参数|参数1|参数2|'参数...'";
+view(root,str1,str2,str3);
+		
 
 digraph xm {
 	graph[fontname="FangSong"];
@@ -12,4 +23,16 @@ digraph xm {
 模块 -> 接口 模块 -> 接口1 模块 -> 接口2 模块 -> "接口..." 
 接口 -> 参数 接口 -> 参数1 接口 -> 参数2 接口 -> "参数..." 
 
+}
+
+
+digraph javaConcurrent {
+	graph[fontname="FangSong"];
+	edge [fontname="FangSong"];
+	node [shape=box, fontname="FangSong"];
+	label = 接口管理
+接口管理 -> 项目管理
+项目管理 -> 模块列表 ->接口列表
+接口列表 -> 执行接口
+接口列表 -> 参数查看
 }
