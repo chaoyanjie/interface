@@ -1,1 +1,15 @@
 https://github.com/chaoyanjie/interface.git
+
+grap 图形
+
+digraph xm {
+	graph[fontname="FangSong"];
+	edge [fontname="FangSong"];
+	node [shape=box, fontname="FangSong"];
+	label = 接口管理
+接口管理 -> 项目 
+项目 -> 模块 项目 -> 模块1 项目 -> 模块2 项目 -> "模块..." 
+模块 -> 接口 模块 -> 接口1 模块 -> 接口2 模块 -> "接口..." 
+接口 -> 参数 接口 -> 参数1 接口 -> 参数2 接口 -> "参数..." 
+
+}
