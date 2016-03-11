@@ -54,6 +54,10 @@
 	select pro_id,iname,icode,idetail,h_inter_id,id from t_interface where pro_id=#{pid}
 </select>
 
+<select id="getAllByModelId" resultMap="interfaceEntityResultMap">
+	select pro_id,iname,icode,idetail,h_inter_id,id from t_interface where id in (#{ids})
+</select>
+
 <select id="getCountByObj"   resultType="int">
 	select count(*) from t_interface  
 	<include refid="sqlWhere"/> 

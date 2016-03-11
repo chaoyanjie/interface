@@ -1,5 +1,9 @@
 package com.web.service;
 
-public interface ParameterService {
+import java.util.List;
 
+import com.web.entity.ParameterEntity;
+
+public interface ParameterService {
+public List<ParameterEntity> getAllByInterId(Integer id);
 }

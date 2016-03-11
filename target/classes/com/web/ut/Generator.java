@@ -45,6 +45,9 @@ public class Generator {
 		
 		ModelEntity obj3=new ModelEntity();
 		ge.gen(obj3, "E:\\bb\\interface\\src\\main\\java\\", "t_models");
+		
+		StringBuffer sb=new StringBuffer("");
+				
 		 
 		
 	}

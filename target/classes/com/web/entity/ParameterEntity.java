@@ -9,6 +9,7 @@ public ParameterEntity(String paName, String paCode, String paValue) {
 		this.paName = paName;
 		this.paCode = paCode;
 		this.paValue = paValue;
+		
 	}
 
 
@@ -21,6 +22,17 @@ private Integer interId;
 private String paName;
 private String paCode;
 private String paValue;
+private String paType;
+public String getPaType() {
+	return paType;
+}
+
+
+public void setPaType(String paType) {
+	this.paType = paType;
+}
+
+
 public Integer getInterId() {
 	return interId;
 }

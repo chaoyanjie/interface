@@ -49,7 +49,7 @@
 										 
 											<td>
 											   
-											   <a href="${rc.contextPath}/web/pro/jiekou/${obj.proId}"><i class="fa fa-reorder fa-fw m-r-5"></i>接口列表</a>
+											   <a href="${rc.contextPath}/web/pro/jiekoum/${obj.id}"><i class="fa fa-reorder fa-fw m-r-5"></i>接口列表</a>
 											   
 											</td>
 											 

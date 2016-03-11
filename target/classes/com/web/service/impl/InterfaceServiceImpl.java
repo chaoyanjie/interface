@@ -29,6 +29,11 @@ public List<InterfaceEntity> getAllByProId(Integer pid){
 }
 
 
+public List<InterfaceEntity> getAllByModelId(String ids){
+	return interfaceDao.getAllByModelId(ids);
+}
+
+
 	@Override
 
 	public BaseDao getDao() {

@@ -7,3 +7,6 @@ CREATE TABLE t_models
 	pro_id varchar(50) COMMENT '所属工程',
 	id int COMMENT '主键'
 ) COMMENT = 't_models' DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+2.参数表增加字段类型 字段 默认值 String
+ALTER TABLE t_parameter ADD COLUMN pa_type VARCHAR(10) DEFAULT  'String'

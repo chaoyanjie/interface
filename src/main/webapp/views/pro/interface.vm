@@ -54,7 +54,8 @@
 											<td>
 											   <a href=""><i class="fa fa-pencil fa-fw m-r-5"></i>编辑</a>
 											   <i class="fa fa-trash fa-fw m-r-5"></i> 删除</a>
-											   <a href="/execi"><i class="fa fa-arrow-right fa-fw m-r-5"></i>执行接口</a>
+											   <a href="javascript:void(0)" onclick="getPa($!obj.id)"><i class="fa fa-arrow-right fa-fw m-r-5"></i>查看参数说明</a>
+											   <a href="javascript:void(0)" onclick="getRes($!obj.id)"><i class="fa fa-arrow-right fa-fw m-r-5"></i>执行接口</a>
 											</td>
 											 <td>
 											    <a href=""><i class="fa fa-check fa-fw m-r-5" style="color:green"></i>成功</a>
@@ -92,7 +93,7 @@
                             <h4 class="panel-title">接口执行过程</h4>
                         </div>
                         <div class="panel-body">
-							 <div style="pull-left">
+							 <div style="pull-left" id="dataDiv">
 							  接口B<br/>
 							 REQUEST: {"functionId":"00001","params":{"uid":1,"pageSize":10}}<br/>
 							RESPONSE: {}<br/>
@@ -105,4 +106,29 @@
 			<!-- end row -->
 		</div>
 	#parse("/frame/tail.vm")	
+	<script>
+		var path="${rc.contextPath}/web/pro/execi/";
+		var path1="${rc.contextPath}/web/pro/pa/";
+		function getRes(id){
+		   $.get(path+id, function(result){
+			    callBack(result);
+		   });
+		}
+		
+		function getPa(id){
+		   $.get(path1+id, function(result){
+			    callBack1(result.msg);
+		   });
+		}
+		
+		function callBack(data){
+		   $("#dataDiv").append("<span>"+data.status+"</span><br/>");
+		   $("#dataDiv").append("<span>"+data.msg+"</span><br/>");
+		}
+		function callBack1(data){
+		   for(var i=0;i<data.length;i++){
+		 	  $("#dataDiv").append("<span>"+JSON.stringify(data[i])+"</span><br/>");
+		   }
+		}
+	</script>
 		

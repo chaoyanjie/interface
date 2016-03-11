@@ -6,6 +6,7 @@
 	<result property="paName" column="pa_name"/>
 	<result property="paCode" column="pa_code"/>
 	<result property="paValue" column="pa_value"/>
+	<result property="paType" column="pa_type"/>
 </resultMap>
  <insert id="save" parameterType="com.web.entity.ParameterEntity">
  	 insert into t_parameter (inter_id,pa_name,pa_code,pa_value,id)
@@ -42,10 +43,10 @@
                 </where>
 </sql> 
 <select id="getObjectById" resultMap="parameterEntityResultMap">
-	select inter_id,pa_name,pa_code,pa_value,id from t_parameter where id=#{id}
+	select inter_id,pa_name,pa_code,pa_value,pa_type,id from t_parameter where id=#{id}
 </select>
 <select id="getAllByInterId" resultMap="parameterEntityResultMap">
-	select inter_id,pa_name,pa_code,pa_value,id from t_parameter where inter_id=#{iid}
+	select inter_id,pa_name,pa_code,pa_value,pa_type,id from t_parameter where inter_id=#{iid}
 </select>
 
 <select id="getCountByObj"   resultType="int">
@@ -53,7 +54,7 @@
 	<include refid="sqlWhere"/> 
 </select>
 <select id="getAllByPage" resultMap="parameterEntityResultMap">
-    select inter_id,pa_name,pa_code,pa_value,id from t_parameter  
+    select inter_id,pa_name,pa_code,pa_value,pa_type,id from t_parameter  
     <include refid="sqlWhere"/> 
      LIMIT ${pageNum }, ${ pageSize }
 </select>

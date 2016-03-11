@@ -42,6 +42,7 @@
 											<th>参数名称</th>
 											<th>参数代码</th>
 											<th>默认值</th>
+											<th>参数类型</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -51,6 +52,7 @@
 											<td>$!obj1.paName</td>
 											<td> $!obj1.paCode</td>
 											<td>$!obj1.paValue</td>
+											<td>$!obj1.paType</td>
 										</tr>
 									 #end
 									</tbody>
