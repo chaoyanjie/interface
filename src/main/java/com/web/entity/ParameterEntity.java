@@ -18,6 +18,16 @@ public ParameterEntity() {
 }
 
 
+public ParameterEntity(String paName, String paCode, String paValue,
+		String paType) {
+	super();
+	this.paName = paName;
+	this.paCode = paCode;
+	this.paValue = paValue;
+	this.paType = paType;
+}
+
+
 private Integer interId;
 private String paName;
 private String paCode;
