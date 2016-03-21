@@ -1,4 +1,6 @@
 <div id="sidebar" class="sidebar">
+
+
 			<!-- begin sidebar scrollbar -->
 			<div data-scrollbar="true" data-height="100%">
 				<!-- begin sidebar user -->
@@ -26,6 +28,7 @@
 						<ul class="sub-menu">
 							<li class="active"><a href="${rc.contextPath}/web/pro/list">项目管理</a></li>
 							<li class="active"><a href="${rc.contextPath}/web/pro/list">文档管理</a></li>
+							<li class="active"><a href="${rc.contextPath}/web/pro/list">我的工作项</a></li>
 							<!--
 							<li class="active"><a href="login.html">阅读模式1</a></li>
 							<li class="active"><a href="http://www.htmleaf.com/ziliaoku/font-awesome/2014100887.html">图标选择</a></li>
