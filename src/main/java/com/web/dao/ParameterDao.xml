@@ -45,8 +45,13 @@
 <select id="getObjectById" resultMap="parameterEntityResultMap">
 	select inter_id,pa_name,pa_code,pa_value,pa_type,id from t_parameter where id=#{id}
 </select>
+<!-- <select id="getAllByInterId" resultMap="parameterEntityResultMap">
+	select inter_id as 接口编号,pa_name as 参数名称,pa_code as 参数代码,pa_value as 参数值,id as 主键,pa_type as 参数类型 from t_parameter where inter_id=#{iid}
+	
+</select> -->
 <select id="getAllByInterId" resultMap="parameterEntityResultMap">
 	select inter_id,pa_name,pa_code,pa_value,pa_type,id from t_parameter where inter_id=#{iid}
+	
 </select>
 
 <select id="getCountByObj"   resultType="int">

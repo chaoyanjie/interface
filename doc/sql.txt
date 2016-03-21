@@ -3,3 +3,10 @@ SELECT t.id,t.pname,t.pdetail,t.pversion,i.hInterId,i.icode,i.iname,p.paName,p.p
 
 测试 git冲突
 edit by page html.
+
+查询数据库中的列名称
+
+SELECT COLUMN_NAME,column_comment FROM INFORMATION_SCHEMA.Columns WHERE table_name='t_parameter' AND table_schema='model';
+
+SELECT COLUMN_NAME, 'as', column_comment  FROM (SELECT COLUMN_NAME,column_comment FROM INFORMATION_SCHEMA.Columns WHERE table_name='t_parameter' AND table_schema='model') aa;
+
